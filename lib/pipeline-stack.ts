@@ -1,5 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { CpyServicesPipelineStage } from './pipeline-stage'
 import { CodePipeline, CodePipelineSource, CodeBuildStep } from 'aws-cdk-lib/pipelines';
 
 export interface CustomStackProps extends cdk.StackProps {
@@ -11,7 +12,7 @@ export class CpyServicesPipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: CustomStackProps) {
     super(scope, id, props)
 
-    new CodePipeline(this, 'Pipeline', {
+    const pipeline = new CodePipeline(this, 'Pipeline', {
       pipelineName: `${props?.prefix}-Pipeline-${props?.branch}`,
       synth: new CodeBuildStep('SynthStep', {
         input: CodePipelineSource.gitHub('CorePower-Yoga/cpy-services', `${props?.branch}`),
@@ -21,5 +22,8 @@ export class CpyServicesPipelineStack extends cdk.Stack {
         commands: ['npm ci', 'npm run build', 'npx cdk synth']
       })
     });
+
+    const deploy = new CpyServicesPipelineStage(this, `Deploy-${props?.branch}`)
+    const deployStage = pipeline.addStage(deploy)
   }
 }
