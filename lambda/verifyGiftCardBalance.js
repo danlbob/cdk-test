@@ -2,8 +2,8 @@ const axios = require('axios');
 
 exports.handler = async (event) => {
 
-    const apiKey = process.env.ZENOTI_API_KEY;
-    const zenotiUrl = process.env.ZENOTI_API_URL;
+    const apiKey = process.env.apiKey;
+    const zenotiUrl = process.env.zenotiUrl;
     const card_number = event.queryStringParameters.giftcard_number;
     
     const verifyGiftCardCode = async () => {
