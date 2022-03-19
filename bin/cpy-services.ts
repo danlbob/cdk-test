@@ -1,34 +1,33 @@
 #!/usr/bin/env node
-import * as cdk from 'aws-cdk-lib';
-import { CpyServicesPipelineStack } from '../lib/pipeline-stack';
+import * as cdk from 'aws-cdk-lib'
+import { CpyServicesPipelineStack } from '../lib/pipeline-stack'
 
-const app = new cdk.App();
+const app = new cdk.App()
 
-new CpyServicesPipelineStack(app, 'cpy-services-dev', {
-  branch: 'dev',
+new CpyServicesPipelineStack(app, 'cpy-services-dan', {
+  branch: 'dan',
   prefix: 'cpy-services',
   env: {
-    account: '991510437442',
-    region: 'us-east-2'
-  }
-});
+    account: '413427971471',
+    region: 'us-west-2',
+  },
+})
 
 new CpyServicesPipelineStack(app, 'cpy-services-stage', {
   branch: 'stage',
   prefix: 'cpy-services',
   env: {
-    account: '991510437442',
-    region: 'us-east-2'
-  }
-});
+    account: '413427971471',
+    region: 'us-west-2',
+  },
+})
 
 new CpyServicesPipelineStack(app, 'cpy-services-prod', {
   branch: 'main',
   prefix: 'cpy-services',
   env: {
-    account: '991510437442',
-    region: 'us-east-2'
-  }
-});
+    account: '413427971471',
+    region: 'us-west-2',
+  },
+})
 
-app.synth();

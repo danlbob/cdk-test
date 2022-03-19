@@ -6,6 +6,7 @@ export class CpyServicesPipelineStage extends Stage {
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props)
 
-    new CpyServicesStack(this, 'CPYService')
+    new CpyServicesStack(this, 'CPYServices')
   }
 }
+
