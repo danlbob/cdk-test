@@ -24,7 +24,7 @@ export class CpyServicesPipelineStack extends cdk.Stack {
           `${props?.branch}`,
           {
             connectionArn:
-              'arn:aws:codestar-connections:us-west-2:413427971471:connection/aae79136-1bf8-433e-b879-67b59ada1551',
+              'arn:aws:codestar-connections:us-west-2:413427971471:connection/adf0c093-49fb-4f16-845e-3511616c45e5',
           }
         ),
         installCommands: ['npm install -g aws-cdk'],
