@@ -20,7 +20,7 @@ export class CpyServicesPipelineStack extends cdk.Stack {
       pipelineName: `${props?.prefix}-Pipeline-${props?.branch}`,
       synth: new CodeBuildStep('SynthStep', {
         input: CodePipelineSource.connection(
-          'CorePower-Yoga/cpy-services',
+          'danlbob/cdk-test',
           `${props?.branch}`,
           {
             connectionArn:
