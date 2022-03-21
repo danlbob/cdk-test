@@ -16,6 +16,9 @@ export class CpyServicesStack extends cdk.Stack {
         apiKey: apiKey.toString(),
         zenotiUrl: zenotiUrl.toString()
       },
+      bundling:{
+        externalModules: ['axios']
+      },
       entry: 'lambda/verifyGiftCardBalance.js',
     })
 
