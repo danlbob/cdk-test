@@ -16,7 +16,7 @@ export class CpyServicesStack extends cdk.Stack {
         apiKey: apiKey.toString(),
         zenotiUrl: zenotiUrl.toString()
       },
-      entry: 'lambda/verifyGiftCardBalance',
+      entry: 'lambda/verifyGiftCardBalance.js',
     })
 
     new apigw.LambdaRestApi(this, 'VerifyGiftCard', {
